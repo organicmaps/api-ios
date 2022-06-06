@@ -35,10 +35,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>com.mapswithme.maps</string>
+			<string>app.organicmaps</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>MapsWithMeApiExampleCapitals</string>
+				<string>OMApiExampleCapitals</string>
 			</array>
 		</dict>
 	</array>
@@ -46,7 +46,7 @@
 	<string>1.0</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>mapswithme</string>
+		<string>om</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
