@@ -1,6 +1,6 @@
 /*******************************************************************************
 
- Copyright (c) 2013, MapsWithMe GmbH
+ Copyright (c) 2026, Organic Maps OÜ
  All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
@@ -30,17 +30,17 @@
 #import "MasterViewController.h"
 #import "CityDetailViewController.h"
 
-#import "MapsWithMeAPI.h"
+#import "OrganicMapsAPI.h"
 
 @implementation AppDelegate
 
-// MapsWithMe API entry point, when user comes back to your app
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+// Organic Maps API entry point, when user comes back to your app
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
 {
-  if ([MWMApi isMapsWithMeUrl:url])
+  if ([OMApi isOrganicMapsUrl:url])
   {
     // if we got nil, it means that Back button was pressed without selecting any pin
-    MWMPin * pin = [MWMApi pinFromUrl:url];
+    OMPin * pin = [OMApi pinFromUrl:url];
     if (pin)
     {
       NSInteger const cityId = [pin.idOrUrl integerValue];

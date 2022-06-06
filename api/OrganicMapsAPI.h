@@ -1,6 +1,6 @@
 /*******************************************************************************
 
- Copyright (c) 2014, MapsWithMe GmbH
+ Copyright (c) 2026, Organic Maps OÜ
  All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
@@ -28,12 +28,12 @@
 
 #import <Foundation/Foundation.h>
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
-  #error "maps.me supports iOS >= 7.0 only"
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_15_0
+  #error "Organic Maps supports iOS >= 15.0 only"
 #endif
 
 // Wrapper for a pin on a map
-@interface MWMPin : NSObject
+@interface OMPin : NSObject
 /// [required] pin latitude
 @property (nonatomic) double lat;
 /// [required] pin longitude
@@ -41,7 +41,7 @@
 /// [optional] pin title
 @property (nullable, copy, nonatomic) NSString * title;
 /// [optional] passed back to the app when pin is clicked, OR, if it's a valid url,
-/// it will be opened from MapsWithMe after selecting "More Details..." for the pin
+/// it will be opened from Organic Maps after selecting "More Details..." for the pin.
 @property (nullable, copy, nonatomic) NSString * idOrUrl;
 
 - (nullable instancetype)initWithLat:(double)lat
@@ -52,26 +52,26 @@
 @end
 
 
-// MapsWithMe API interface
-@interface MWMApi : NSObject
+// Organic Maps API interface
+@interface OMApi : NSObject
 
-/// returns YES if url is received from MapsWithMe and can be parsed
-+ (BOOL)isMapsWithMeUrl:(nonnull NSURL *)url;
+/// returns YES if url is received from Organic Maps and can be parsed
++ (BOOL)isOrganicMapsUrl:(nonnull NSURL *)url;
 /// returns nil if user didn't select any pin and simply pressed "Back" button
-+ (nullable MWMPin *)pinFromUrl:(nonnull NSURL *)url;
-/// returns NO if MapsWithMe is not installed or outdated version doesn't support API calls
++ (nullable OMPin *)pinFromUrl:(nonnull NSURL *)url;
+/// returns NO if Organic Maps is not installed or outdated version doesn't support API calls
 + (BOOL)isApiSupported;
-/// Simply opens MapsWithMe app
+/// Simply opens Organic Maps app
 + (BOOL)showMap;
 /// Displays given point on a map, title and id are optional.
-/// If id contains valid url, it will be opened from MapsWithMe after selecting "More Details..." for the pin
+/// If id contains valid url, it will be opened from Organic Maps after selecting "More Details..." for the pin
 + (BOOL)showLat:(double)lat lon:(double)lon title:(nullable NSString *)title idOrUrl:(nullable NSString *)idOrUrl;
 /// The same as above but using pin wrapper
-+ (BOOL)showPin:(nullable MWMPin *)pin;
++ (BOOL)showPin:(nullable OMPin *)pin;
 /// Displays any number of pins
-+ (BOOL)showPins:(nonnull NSArray<MWMPin *> *)pins;
++ (BOOL)showPins:(nonnull NSArray<OMPin *> *)pins;
 //
-+ (void)showMapsWithMeIsNotInstalledDialog;
++ (void)showOrganicMapsNotInstalledDialog;
 /// Set value = YES if you want to open pin URL on balloon click, default value is NO
 + (void)setOpenUrlOnBalloonClick:(BOOL)value;
 
