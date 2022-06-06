@@ -1,6 +1,6 @@
 /*******************************************************************************
 
- Copyright (c) 2013, MapsWithMe GmbH
+ Copyright (c) 2022, Organic Maps OU
  All rights reserved.
 
  Redistribution and use in source and binary forms, with or without

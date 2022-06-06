@@ -1,6 +1,6 @@
 /*******************************************************************************
 
- Copyright (c) 2013, MapsWithMe GmbH
+ Copyright (c) 2022, Organic Maps OU
  All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@
 #import "MasterViewController.h"
 #import "CityDetailViewController.h"
 
-#import "MapsWithMeAPI.h"
+#import "OrganicMapsAPI.h"
 
 @implementation MasterViewController
 
@@ -52,21 +52,21 @@
 
 - (void)showAllCitiesOnTheMap:(id)sender
 {
-  NSMutableArray<MWMPin *> * array = [[NSMutableArray alloc] initWithCapacity:[self.capitals count]];
+  NSMutableArray<OMPin *> * array = [[NSMutableArray alloc] initWithCapacity:[self.capitals count]];
 
   for (NSInteger i = 0; i < [self.capitals count]; ++i)
   {
     NSString * pinId = [NSString stringWithFormat:@"%@", @(i)];
-    // Note that url is empty - it means "More details" button for a pin in MapsWithMe will lead back to this example app
+    // Note that url is empty - it means "More details" button for a pin in Organic Maps will lead back to this example app
     NSDictionary * city = self.capitals[i];
-    MWMPin * pin = [[MWMPin alloc] initWithLat:[city[@"lat"] doubleValue] lon:[city[@"lon"] doubleValue] title:city[@"name"] idOrUrl:pinId];
+    OMPin * pin = [[OMPin alloc] initWithLat:[city[@"lat"] doubleValue] lon:[city[@"lon"] doubleValue] title:city[@"name"] idOrUrl:pinId];
     [array addObject:pin];
   }
   // Your should hide any top view objects like UIPopoverController before calling +showPins:
-  // If user does not installed MapsWithMe app, a popup dialog will be shown
+  // If user does not installed Organic Maps app, a popup dialog will be shown
   [self.detailViewController.masterPopoverController dismissPopoverAnimated:YES];
-  
-  [MWMApi showPins:array];
+
+  [OMApi showPins:array];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -107,7 +107,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
   UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 240, tableView.rowHeight)];
-  label.text = [MWMApi isApiSupported] ? @"MapsWithMe is installed" : @"MapsWithMe is not installed";
+  label.text = [OMApi isApiSupported] ? @"Organic Maps is installed" : @"Organic Maps is not installed";
   label.textAlignment = NSTextAlignmentCenter;
   label.backgroundColor = [UIColor clearColor];
   return label;

@@ -1,6 +1,6 @@
 /*******************************************************************************
 
- Copyright (c) 2013, MapsWithMe GmbH
+ Copyright (c) 2022, Organic Maps OU
  All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
@@ -28,7 +28,7 @@
 
 #import "CityDetailViewController.h"
 
-#import "MapsWithMeAPI.h"
+#import "OrganicMapsAPI.h"
 
 @interface CityDetailViewController ()
 
@@ -51,7 +51,7 @@
     pinId = [NSString stringWithFormat:@"http://en.wikipedia.org/wiki/%@", [self urlEncode:self.city[@"name"]]];
   else
     pinId = [NSString stringWithFormat:@"%@", @(_cityIndex)];
-  [MWMApi showLat:[self.city[@"lat"] doubleValue] lon:[self.city[@"lon"] doubleValue] title:self.city[@"name"] idOrUrl:pinId];
+  [OMApi showLat:[self.city[@"lat"] doubleValue] lon:[self.city[@"lon"] doubleValue] title:self.city[@"name"] idOrUrl:pinId];
 }
 
 - (void)setCityIndex:(NSInteger)newCityIndex
