@@ -1,0 +1,348 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0010001000000000000AAAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020001000000000000AAAA /* AppDelegate.swift */; };
+		A0010002000000000000AAAA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020002000000000000AAAA /* MasterViewController.swift */; };
+		A0010003000000000000AAAA /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020003000000000000AAAA /* CityDetailViewController.swift */; };
+		A0010004000000000000AAAA /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020004000000000000AAAA /* Capital.swift */; };
+		A0010005000000000000AAAA /* OrganicMapsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020005000000000000AAAA /* OrganicMapsAPI.swift */; };
+		A0010006000000000000AAAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0020006000000000000AAAA /* LaunchScreen.storyboard */; };
+		A0010007000000000000AAAA /* capitals.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0020007000000000000AAAA /* capitals.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A0020001000000000000AAAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0020002000000000000AAAA /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		A0020003000000000000AAAA /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
+		A0020004000000000000AAAA /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		A0020005000000000000AAAA /* OrganicMapsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrganicMapsAPI.swift; path = ../api/OrganicMapsAPI.swift; sourceTree = "<group>"; };
+		A0020006000000000000AAAA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A0020007000000000000AAAA /* capitals.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = capitals.plist; path = ../shared-resources/capitals.plist; sourceTree = SOURCE_ROOT; };
+		A0020008000000000000AAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0020009000000000000AAAA /* World Capitals Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "World Capitals Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0030001000000000000AAAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0040001000000000000AAAA = {
+			isa = PBXGroup;
+			children = (
+				A0040002000000000000AAAA /* Organic Maps API */,
+				A0040003000000000000AAAA /* Capitals */,
+				A0040004000000000000AAAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A0040002000000000000AAAA /* Organic Maps API */ = {
+			isa = PBXGroup;
+			children = (
+				A0020005000000000000AAAA /* OrganicMapsAPI.swift */,
+			);
+			name = "Organic Maps API";
+			sourceTree = "<group>";
+		};
+		A0040003000000000000AAAA /* Capitals */ = {
+			isa = PBXGroup;
+			children = (
+				A0020001000000000000AAAA /* AppDelegate.swift */,
+				A0020002000000000000AAAA /* MasterViewController.swift */,
+				A0020003000000000000AAAA /* CityDetailViewController.swift */,
+				A0020004000000000000AAAA /* Capital.swift */,
+				A0040005000000000000AAAA /* Supporting Files */,
+			);
+			path = Capitals;
+			sourceTree = "<group>";
+		};
+		A0040004000000000000AAAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0020009000000000000AAAA /* World Capitals Swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0040005000000000000AAAA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0020008000000000000AAAA /* Info.plist */,
+				A0020006000000000000AAAA /* LaunchScreen.storyboard */,
+				A0020007000000000000AAAA /* capitals.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0050001000000000000AAAA /* Capitals */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0060001000000000000AAAA /* Build configuration list for PBXNativeTarget "Capitals" */;
+			buildPhases = (
+				A0070001000000000000AAAA /* Sources */,
+				A0030001000000000000AAAA /* Frameworks */,
+				A0070002000000000000AAAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Capitals;
+			productName = Capitals;
+			productReference = A0020009000000000000AAAA /* World Capitals Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0080001000000000000AAAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				ORGANIZATIONNAME = "Organic Maps OÜ";
+				TargetAttributes = {
+					A0050001000000000000AAAA = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A0060002000000000000AAAA /* Build configuration list for PBXProject "Capitals" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0040001000000000000AAAA;
+			productRefGroup = A0040004000000000000AAAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0050001000000000000AAAA /* Capitals */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0070002000000000000AAAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0010006000000000000AAAA /* LaunchScreen.storyboard in Resources */,
+				A0010007000000000000AAAA /* capitals.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0070001000000000000AAAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0010001000000000000AAAA /* AppDelegate.swift in Sources */,
+				A0010002000000000000AAAA /* MasterViewController.swift in Sources */,
+				A0010003000000000000AAAA /* CityDetailViewController.swift in Sources */,
+				A0010004000000000000AAAA /* Capital.swift in Sources */,
+				A0010005000000000000AAAA /* OrganicMapsAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A0090001000000000000AAAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0090002000000000000AAAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0090003000000000000AAAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Capitals/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.api.example.CapitalsSwift;
+				PRODUCT_NAME = "World Capitals Swift";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A0090004000000000000AAAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Capitals/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.api.example.CapitalsSwift;
+				PRODUCT_NAME = "World Capitals Swift";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0060001000000000000AAAA /* Build configuration list for PBXNativeTarget "Capitals" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0090003000000000000AAAA /* Debug */,
+				A0090004000000000000AAAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0060002000000000000AAAA /* Build configuration list for PBXProject "Capitals" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0090001000000000000AAAA /* Debug */,
+				A0090002000000000000AAAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0080001000000000000AAAA /* Project object */;
+}

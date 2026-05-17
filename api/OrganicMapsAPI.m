@@ -87,7 +87,7 @@ static NSString * const kOrganicMapsIsNotInstalledPage =
 "<body>"
 "<div class='description'>Organic Maps app is required to proceed. We integrated with <a href='https://organicmaps.app' target='_blank' class='om'>Organic Maps</a> to provide you with offline maps of the entire world.</div>"
 "<div class='description'>To continue please download the app:</div>"
-"<a href='https://omaps.app/get' class='download button shadow'>Download Organic Maps</a>"
+"<a href='https://apps.apple.com/app/organic-maps/id1567437057' class='download button shadow'>Download Organic Maps</a>"
 "</body>"
 "</html>";
 
@@ -115,7 +115,24 @@ static NSString * const kOrganicMapsIsNotInstalledPage =
 
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error
 {
-  [webView loadHTMLString:kOrganicMapsIsNotInstalledPage baseURL:[NSURL URLWithString:@"https://omaps.app/"]];
+  [webView loadHTMLString:kOrganicMapsIsNotInstalledPage baseURL:nil];
+}
+
+// Route link taps to Safari / App Store so the user can actually install Organic Maps.
+// Without this, WKWebView follows the link in-place and nothing visible happens.
+- (void)webView:(WKWebView *)webView
+    decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction
+                    decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+{
+  if (navigationAction.navigationType == WKNavigationTypeLinkActivated)
+  {
+    NSURL * url = navigationAction.request.URL;
+    if (url)
+      [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
+    decisionHandler(WKNavigationActionPolicyCancel);
+    return;
+  }
+  decisionHandler(WKNavigationActionPolicyAllow);
 }
 
 - (void)onCloseButtonClicked:(id)sender

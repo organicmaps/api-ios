@@ -22,10 +22,14 @@ In general it is possible to establish a one way or two way communication betwee
 
 ### Integration
 
-First step is to clone [repository][linkRepo] or download it as an archive.
+First step is to clone the [repository][linkRepo] or download it as an archive.
 
-When your are done you find two folders: *api* and *capitals-example*.
-First one contains .h and .m files which you need to include into your project. You can always modify them according to your needs.
+The library lives in the `api/` folder and comes in two flavours — pick whichever matches your project:
+
+* **Objective-C** — copy `api/OrganicMapsAPI.h` and `api/OrganicMapsAPI.m` into your project. Both files are ARC-compatible.
+* **Swift 5** — copy `api/OrganicMapsAPI.swift` into your project.
+
+You can always modify them according to your needs. The two implementations are functionally equivalent and use the same URL scheme on the wire, so apps built with either one interoperate with Organic Maps in the same way.
 
 If you want to get results of API calls, register a unique URL scheme for your app. You can do it with [XCode][linkAddUrlScheme] or by editing the Info.plist file in your project — see Apple's [documentation][linkAppleCustomUrlSchemes]. The API library automatically picks up the first scheme listed under `CFBundleURLTypes` → `CFBundleURLSchemes` and passes it to Organic Maps as the callback. If you register multiple URL types, place the one you want Organic Maps to use for callbacks first.
 
@@ -33,100 +37,184 @@ Organic Maps uses the `om://` URL scheme.
 
 You also need to add [LSApplicationQueriesSchemes][linkAppleLSApplicationQueriesSchemes] key into your plist with value *om* to correctly query whether Organic Maps is already installed.
 
-*capitals-example* folder contains a sample application which demonstrates some API features.
+### Repository layout
+
+```
+api-ios/
+├── api/
+│   ├── OrganicMapsAPI.h         # Objective-C header
+│   ├── OrganicMapsAPI.m         # Objective-C implementation
+│   └── OrganicMapsAPI.swift     # Swift 5 implementation
+├── shared-resources/
+│   └── capitals.plist           # Sample data shared by both example apps
+├── capitals-example/            # Objective-C sample app
+└── swift-capitals-example/      # Swift sample app
+```
+
+Both example apps reference `shared-resources/capitals.plist` via a relative path in their Xcode projects, so the data file lives in one place. To share other resources across the two examples (icons, plists, etc.), add them under `shared-resources/` and reference them from each `.xcodeproj` the same way — no symlinks needed.
 
 *NOTE: If you are using Automatic References Counting (ARC) in your project, you can use [this solution][linkFixARC] or simply fix the code by yourself.*
 
 ### API Calls Overview and HOW TO
 
-* All methods are static for *OMApi* class, *BOOL* methods return *NO* if call is failed.
-* If id for given pin contains valid url, it will be opened from Organic Maps after selecting *More Info* button.
-  For any other content, id will be simply passed back to the caller's [*AppDelegate application:openURL:options:*][linkAppleDelegate] method
+* Public methods on the Objective-C `OMApi` class are static; `BOOL`-returning methods return `NO` on failure. The Swift equivalent is the `OrganicMaps` enum (used as a namespace) with the same methods.
+* If `id` for a given pin contains a valid URL, it will be opened from Organic Maps after the user selects *More Info*. For any other content, the id is passed back to the caller's [`application:openURL:options:`][linkAppleDelegate] method.
 
 #### Open [Organic Maps Application][linkOm]
 
 Simply opens Organic Maps app:
 
+Objective-C:
+
     + (BOOL)showMap;
-
-Example:
-
+    // …
     [OMApi showMap];
+
+Swift:
+
+    static func openApp() -> Bool
+    // …
+    OrganicMaps.openApp()
 
 #### Show specified location on the map
 
 Displays given point on a map:
 
+Objective-C:
+
     + (BOOL)showLat:(double)lat lon:(double)lon title:(nullable NSString *)title idOrUrl:(nullable NSString *)idOrUrl;
-
-The same as above but using pin wrapper:
-
     + (BOOL)showPin:(nullable OMPin *)pin;
-
-Pin wrapper is a simple helper to wrap pins displayed on the map:
 
     @interface OMPin : NSObject
       @property (nonatomic) double lat;
       @property (nonatomic) double lon;
       @property (nullable, copy, nonatomic) NSString * title;
       @property (nullable, copy, nonatomic) NSString * idOrUrl;
-      - (nullable instancetype)initWithLat:(double)lat lon:(double)lon title:(nullable NSString *)title idOrUrl:(nullable NSString *)idOrUrl;
+      - (nullable instancetype)initWithLat:(double)lat lon:(double)lon
+                                    title:(nullable NSString *)title
+                                  idOrUrl:(nullable NSString *)idOrUrl;
     @end
 
-Example:
+    // …
+    [OMApi showLat:53.9 lon:27.56667 title:@"Minsk - the capital of Belarus" idOrUrl:@"https://wikipedia.org/wiki/Minsk"];
 
-    [OMApi showLat:53.9 lon:27.56667 title:@"Minsk - the capital of Belarus" idOrUrl:@"http://wikipedia.org/wiki/Minsk"];
-    …
-    OMPin * goldenGate = [[OMPin alloc] initWithLat:37.8195 lon:-122.4785 title:@"Golden Gate in San Francisco" idOrUrl:@"any number or string here you want to receive back in your app, or any url you want to be opened from Organic Maps"];
+    OMPin * goldenGate = [[OMPin alloc] initWithLat:37.8195 lon:-122.4785
+                                              title:@"Golden Gate in San Francisco"
+                                            idOrUrl:@"any string or URL"];
     [OMApi showPin:goldenGate];
+
+Swift:
+
+    @discardableResult
+    static func showPin(latitude: Double, longitude: Double,
+                        title: String? = nil, identifier: String? = nil) -> Bool
+
+    struct OMPin {
+      let latitude: Double
+      let longitude: Double
+      let title: String?
+      let identifier: String?
+    }
+
+    // …
+    OrganicMaps.showPin(latitude: 53.9, longitude: 27.56667,
+                        title: "Minsk - the capital of Belarus",
+                        identifier: "https://wikipedia.org/wiki/Minsk")
 
 #### Show any number of pins on the map
 
-    + (BOOL)showPins:(NSArray *)pins;
+Objective-C:
+
+    + (BOOL)showPins:(NSArray<OMPin *> *)pins;
+
+Swift:
+
+    @discardableResult
+    static func showPins(_ pins: [OMPin], openUrlOnBalloonClick: Bool = false) -> Bool
 
 #### Receiving results of API calls
 
-When users presses *Back* button in Organic Maps, or selects *More Info* button, he is redirected back to your app.
-Here are helper methods to obtain API call results:
+When the user presses *Back* in Organic Maps or selects *More Info*, they are redirected back to your app. Helper methods to obtain the API call result:
 
-Returns YES if url is received from Organic Maps and can be parsed:
+Returns true if `url` is the Organic Maps callback (its scheme matches your app's first registered URL scheme):
+
+Objective-C:
 
     + (BOOL)isOrganicMapsUrl:(NSURL *)url;
 
-Returns nil if user didn't select any pin and simply pressed *Back* button:
+Swift:
 
-    + (OMPin *)pinFromUrl:(NSURL *)url;
+    static func isOrganicMapsCallback(url: URL) -> Bool
 
-Example:
+Returns nil if the user pressed *Back* without selecting any pin:
 
-    if ([OMApi isOrganicMapsUrl:url])
+Objective-C:
+
+    + (nullable OMPin *)pinFromUrl:(NSURL *)url;
+
+Swift:
+
+    static func pin(from url: URL) -> OMPin?
+
+Example handler in `application:openURL:options:`:
+
+Objective-C:
+
+    - (BOOL)application:(UIApplication *)application
+                openURL:(NSURL *)url
+                options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
     {
-      // Good, here we know that your app was opened from Organic Maps
-      OMPin * pin = [OMApi pinFromUrl:url];
-      if (pin)
+      if ([OMApi isOrganicMapsUrl:url])
       {
-        // User selected specific pin, and we can get it's properties
+        OMPin * pin = [OMApi pinFromUrl:url];
+        if (pin) {
+          // User selected a specific pin; pin.title / pin.idOrUrl / pin.lat / pin.lon are available.
+        } else {
+          // User pressed "Back" without selecting any pin.
+        }
+        return YES;
       }
-      else
-      {
-        // User pressed "Back" button and didn't select any pin
-      }
+      return NO;
     }
 
-Note, that you can simply check that `options[UIApplicationOpenURLOptionsSourceApplicationKey]` contains *app.organicmaps* substring to detect that your app is opened from Organic Maps.
+Swift:
+
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+      guard OrganicMaps.isOrganicMapsCallback(url: url) else { return false }
+      if let pin = OrganicMaps.pin(from: url) {
+        // pin.title / pin.identifier / pin.latitude / pin.longitude
+      } else {
+        // User pressed "Back" without selecting any pin.
+      }
+      return true
+    }
+
+Note, that you can simply check that `options[UIApplicationOpenURLOptionsSourceApplicationKey]` contains *app.organicmaps* substring to detect that your app was opened from Organic Maps.
 
 #### Check that Organic Maps is installed
 
-Returns NO if Organic Maps is not installed or outdated version doesn't support API calls:
+Returns false if Organic Maps is not installed or doesn't support API calls:
+
+Objective-C:
 
     + (BOOL)isApiSupported;
 
-With this method you can check that user needs to install Organic Maps and display your custom UI.
-Alternatively, you can do nothing and use built-in dialog which will offer users to install Organic Maps.
+Swift:
+
+    static var isInstalled: Bool { get }
+
+With this method you can check whether the user needs to install Organic Maps and display your custom UI. Alternatively, the library presents a built-in install dialog (`showOrganicMapsNotInstalledDialog` / `OrganicMaps.presentInstallDialog()`) which is invoked automatically by `showPins:` / `showPins(_:)` when the app isn't installed.
 
 ### Set value if you want to open pin URL on balloon click
 
+Objective-C:
+
     + (void)setOpenUrlOnBalloonClick:(BOOL)value;
+
+Swift (passed per call):
+
+    OrganicMaps.showPins(pins, openUrlOnBalloonClick: true)
 
 ### Under the hood
 

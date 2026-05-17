@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		97F3580C185F5BB200DDF84D /* capitals.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97F3580B185F5BB200DDF84D /* capitals.plist */; };
 		FA0ADFF727B1561E00800A86 /* OrganicMapsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0ADFF627B1561E00800A86 /* OrganicMapsAPI.m */; };
+		FA0ADFF827B1561E00800A86 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0ADFF927B1561E00800A86 /* WebKit.framework */; };
 		FA776B4F17848A370023F7A0 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA776B4D17848A370023F7A0 /* MasterViewController.xib */; };
 		FAA484EA178108970027B232 /* 114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA484E2178108970027B232 /* 114x114.png */; };
 		FAA484EB178108970027B232 /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA484E3178108970027B232 /* 144x144.png */; };
@@ -23,18 +24,16 @@
 		FAD3DD53177221B500B0735B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD3DD52177221B500B0735B /* CoreGraphics.framework */; };
 		FAD3DD5B177221B500B0735B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD3DD5A177221B500B0735B /* main.m */; };
 		FAD3DD5F177221B500B0735B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD3DD5E177221B500B0735B /* AppDelegate.m */; };
-		FAD3DD61177221B500B0735B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD3DD60177221B500B0735B /* Default.png */; };
-		FAD3DD63177221B500B0735B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD3DD62177221B500B0735B /* Default@2x.png */; };
-		FAD3DD65177221B500B0735B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD3DD64177221B500B0735B /* Default-568h@2x.png */; };
 		FAD3DD68177221B500B0735B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD3DD67177221B500B0735B /* MasterViewController.m */; };
 		FAD3DD8317724D4A00B0735B /* CityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD3DD8117724D4A00B0735B /* CityDetailViewController.m */; };
 		FAD3DD8417724D4A00B0735B /* CityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD3DD8217724D4A00B0735B /* CityDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		97F3580B185F5BB200DDF84D /* capitals.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = capitals.plist; sourceTree = "<group>"; };
+		97F3580B185F5BB200DDF84D /* capitals.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = capitals.plist; path = "../shared-resources/capitals.plist"; sourceTree = SOURCE_ROOT; };
 		FA0ADFF527B1561E00800A86 /* OrganicMapsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrganicMapsAPI.h; path = ../api/OrganicMapsAPI.h; sourceTree = "<group>"; };
 		FA0ADFF627B1561E00800A86 /* OrganicMapsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrganicMapsAPI.m; path = ../api/OrganicMapsAPI.m; sourceTree = "<group>"; };
+		FA0ADFF927B1561E00800A86 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		FA776B4D17848A370023F7A0 /* MasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MasterViewController.xib; sourceTree = "<group>"; };
 		FAA484E2178108970027B232 /* 114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114x114.png; sourceTree = "<group>"; };
 		FAA484E3178108970027B232 /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144x144.png; sourceTree = "<group>"; };
@@ -53,9 +52,6 @@
 		FAD3DD5C177221B500B0735B /* Capitals-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Capitals-Prefix.pch"; sourceTree = "<group>"; };
 		FAD3DD5D177221B500B0735B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FAD3DD5E177221B500B0735B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FAD3DD60177221B500B0735B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		FAD3DD62177221B500B0735B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		FAD3DD64177221B500B0735B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FAD3DD66177221B500B0735B /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		FAD3DD67177221B500B0735B /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		FAD3DD8017724D4A00B0735B /* CityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDetailViewController.h; sourceTree = "<group>"; };
@@ -71,6 +67,7 @@
 				FAD3DD4F177221B500B0735B /* UIKit.framework in Frameworks */,
 				FAD3DD51177221B500B0735B /* Foundation.framework in Frameworks */,
 				FAD3DD53177221B500B0735B /* CoreGraphics.framework in Frameworks */,
+				FA0ADFF827B1561E00800A86 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +107,7 @@
 				FAD3DD4E177221B500B0735B /* UIKit.framework */,
 				FAD3DD50177221B500B0735B /* Foundation.framework */,
 				FAD3DD52177221B500B0735B /* CoreGraphics.framework */,
+				FA0ADFF927B1561E00800A86 /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,9 +143,6 @@
 				FAD3DD56177221B500B0735B /* Capitals-Info.plist */,
 				FAD3DD5A177221B500B0735B /* main.m */,
 				FAD3DD5C177221B500B0735B /* Capitals-Prefix.pch */,
-				FAD3DD60177221B500B0735B /* Default.png */,
-				FAD3DD62177221B500B0735B /* Default@2x.png */,
-				FAD3DD64177221B500B0735B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -178,7 +173,8 @@
 		FAD3DD43177221B500B0735B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1320;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2650;
 				ORGANIZATIONNAME = "Organic Maps GmbH";
 			};
 			buildConfigurationList = FAD3DD46177221B500B0735B /* Build configuration list for PBXProject "Capitals" */;
@@ -204,10 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD3DD61177221B500B0735B /* Default.png in Resources */,
 				97F3580C185F5BB200DDF84D /* capitals.plist in Resources */,
-				FAD3DD63177221B500B0735B /* Default@2x.png in Resources */,
-				FAD3DD65177221B500B0735B /* Default-568h@2x.png in Resources */,
 				FAD3DD8417724D4A00B0735B /* CityDetailViewController.xib in Resources */,
 				FAA484EA178108970027B232 /* 114x114.png in Resources */,
 				FAA484EB178108970027B232 /* 144x144.png in Resources */,
@@ -243,6 +236,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -266,6 +260,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -278,6 +273,7 @@
 				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -300,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -324,6 +321,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -342,6 +340,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -350,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -373,6 +373,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -384,6 +385,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -393,11 +395,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Capitals/Capitals-Prefix.pch";
 				INFOPLIST_FILE = "Capitals/Capitals-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.api.example.Capitals;
 				PRODUCT_NAME = "World Capitals";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -406,11 +411,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Capitals/Capitals-Prefix.pch";
 				INFOPLIST_FILE = "Capitals/Capitals-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.api.example.Capitals;
 				PRODUCT_NAME = "World Capitals";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
