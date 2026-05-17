@@ -238,6 +238,16 @@ When user selects a pin, your app is called like this:
 
     YourAppUniqueUrlScheme://pin?ll=lat,lon&n=PinName&id=PinId
 
+Organic Maps also supports v2 route deep links. You can open them directly from
+your app, for example to preview a route with intermediate stops:
+
+    NSURL * url = [NSURL URLWithString:@"om://v2/dir?origin=52.5200,13.4050&origin_name=Warehouse%20Berlin&destination=52.5163,13.3777&destination_name=Customer&waypoints=52.5304,13.3850|52.5450,13.3920&waypoint_names=Pickup%201|Pickup%202&mode=drive"];
+    [[UIApplication sharedApplication] openURL:url];
+
+Use `om://v2/nav` instead of `om://v2/dir` to start navigation when the route is
+ready. If `origin` is an explicit coordinate instead of `currentLocation`,
+Organic Maps previews the route first so the user can confirm the start point.
+
 ------------------------------------------------------------------------------------------
 ### API Code is licensed under the BSD 2-Clause License
 
